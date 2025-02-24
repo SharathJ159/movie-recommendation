@@ -1,0 +1,238 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #0f172a, #1e293b);
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+h1 {
+    background-color: #111827;
+    padding: 20px;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Sections */
+.sections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Section Cards */
+.section-card {
+    background-color: #1e3a8a;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    width: 230px;
+    height: 120px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.section-card:hover {
+    background-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 14px rgba(255, 255, 255, 0.3);
+}
+
+/* Sorting Dropdown */
+#sortContainer {
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 20;
+}
+
+#sortOptions {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    z-index: 25;
+}
+
+#sortOptions:hover,
+#sortOptions:focus {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#sortOptions option {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px;
+    display: block;
+}
+
+/* Ensure Sorting Section Shows Both Default & Selected */
+#sortOptions:focus option:first-child {
+    display: block;
+}
+
+/* Language Selection & Recommendation Button */
+#recommendationBox {
+    margin: 20px 0;
+}
+
+#recommendBtn {
+    background-color: #22c55e;
+    padding: 8px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#recommendBtn:hover {
+    background-color: #16a34a;
+    transform: scale(1.08);
+}
+
+/* Search Bar */
+#searchContainer {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#searchBar {
+    width: 50%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: 0.3s ease-in-out;
+}
+
+#searchBar::placeholder {
+    color: #cbd5e1;
+}
+
+#searchBar:focus {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Movies & Shows Container */
+#results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    background: none !important;
+}
+
+/* Movie & Show Cards */
+.movie-card, .saved-card {
+    width: 260px;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: left;
+}
+
+.movie-card:hover, .saved-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 6px 14px rgba(255, 255, 255, 0.2);
+}
+
+/* Saved Section */
+#savedSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    padding: 18px;
+}
+
+#savedItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Save & Remove Buttons */
+.save-btn, .remove-btn {
+    padding: 7px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.save-btn {
+    background-color: #10b981;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #059669;
+    transform: scale(1.08);
+}
+
+.remove-btn {
+    background-color: #ef4444;
+    color: white;
+}
+
+.remove-btn:hover {
+    background-color: #dc2626;
+    transform: scale(1.08);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-card {
+        width: 85%;
+        height: auto;
+    }
+
+    #searchBar {
+        width: 85%;
+    }
+
+    .movie-card, .saved-card {
+        width: 95%;
+    }
+}
+
+
+
+
+

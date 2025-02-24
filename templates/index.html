@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie & Show Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/YOUR_FA_KIT.js" crossorigin="anonymous"></script> <!-- Font Awesome -->
+</head>
+<body>
+    <h1>Movie & Show Recommendation System</h1>
+
+    <div class="sections">
+        <div class="section-card" id="moviesBtn" onclick="activateSection(this)">
+            <i class="fas fa-film"></i>
+            <h2>Movies</h2>
+            <p>Find the best movies across different languages.</p>
+        </div>
+        <div class="section-card" id="showsBtn" onclick="activateSection(this)">
+            <i class="fas fa-tv"></i>
+            <h2>Shows</h2>
+            <p>Explore the top-rated TV shows.</p>
+        </div>
+        <div class="section-card" id="savedBtn" onclick="activateSection(this)">
+            <i class="fas fa-bookmark"></i>
+            <h2>Saved Items</h2>
+            <p>View your saved movies and shows.</p>
+        </div>
+    </div>
+
+    <div id="recommendationBox">
+        <label>Select Language:</label>
+        <select id="language">
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Malayalam">Malayalam</option>
+        </select>
+        <button id="recommendBtn"><i class="fas fa-search"></i> Get Recommendations</button>
+    </div>
+
+    <!-- Sorting Dropdown -->
+    <div id="sortContainer">
+        <label for="sortOptions">Sort By:</label>
+        <select id="sortOptions" onchange="sortMoviesByRating()">
+            <option value="default">Default</option>
+            <option value="highToLow">Top Rated to Low</option>
+        </select>
+    </div>
+
+    <div id="searchContainer">
+        <input type="text" id="searchBar" placeholder="🔍 Search for a movie or show..." onkeyup="searchItems()">
+    </div>
+
+    <div id="results"></div>
+
+    <div id="savedSection" style="display: none;">
+        <h2><i class="fas fa-bookmark"></i> Saved Items</h2>
+        <div id="savedItems"></div>
+    </div>
+
+    <script>
+        function activateSection(selected) {
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.style.backgroundColor = "#1e3a8a";
+            });
+            selected.style.backgroundColor = "#2563eb";
+        }
+
+        function sortMoviesByRating() {
+            let sortOption = document.getElementById("sortOptions").value;
+            let resultsDiv = document.getElementById("results");
+            
+            if (sortOption === "highToLow") {
+                resultsDiv.style.backgroundColor = "#1e40af"; // Blue background for sorted section
+                resultsDiv.style.color = "white"; // Ensure text remains visible
+                resultsDiv.style.padding = "10px";
+                resultsDiv.style.borderRadius = "8px";
+            } else {
+                resultsDiv.style.backgroundColor = "transparent";
+                resultsDiv.style.color = "inherit";
+            }
+        }
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
+
+
