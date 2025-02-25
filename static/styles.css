@@ -19,7 +19,7 @@ h1 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Sections */
+/* Sections Layout */
 .sections {
     display: flex;
     justify-content: center;
@@ -31,62 +31,86 @@ h1 {
 
 /* Section Cards */
 .section-card {
-    background-color: #1e3a8a;
-    padding: 20px;
+    padding: 16px;
     border-radius: 12px;
     color: white;
-    width: 230px;
+    width: 220px;
     height: 120px;
     cursor: pointer;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
 }
 
-.section-card:hover {
+/* Different colors for sections */
+#moviesBtn {
     background-color: #2563eb;
+}
+
+#showsBtn {
+    background-color: #9333ea;
+}
+
+#savedBtn {
+    background-color: #f59e0b;
+}
+
+/* Icons Styling */
+.section-card i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+
+/* Align Icons and Headings */
+.section-card h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Hover Effects */
+.section-card:hover {
     transform: translateY(-4px);
     box-shadow: 0px 6px 14px rgba(255, 255, 255, 0.3);
 }
 
-/* Sorting Dropdown */
-#sortContainer {
-    margin-bottom: 15px;
-    position: relative;
-    z-index: 20;
+/* ✅ Proper Desktop Layout (3 in a Row) */
+@media (min-width: 769px) {
+    .sections {
+        flex-wrap: nowrap;
+    }
+
+    .section-card {
+        width: 250px;
+    }
 }
 
-#sortOptions {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    position: relative;
-    z-index: 25;
-}
+/* ✅ **Fixed Mobile Layout:**
+   - Movies & Shows side by side (50% width)
+   - Saved Section below (80% width) ✅ */
+@media (max-width: 768px) {
+    .sections {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
 
-#sortOptions:hover,
-#sortOptions:focus {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-#sortOptions option {
-    background-color: #1e3a8a;
-    color: white;
-    padding: 10px;
-    display: block;
-}
-
-/* Ensure Sorting Section Shows Both Default & Selected */
-#sortOptions:focus option:first-child {
-    display: block;
+    /* Movies & Shows: Side by Side */
+    #moviesBtn, #showsBtn {
+        width: 48%; /* Ensures equal width for both */
+    }
+    
+    /* Saved Section: Below them, smaller size */
+    #savedBtn {
+        width: 80%;
+        height: 90px;
+        margin-top: 10px;
+    }
 }
 
 /* Language Selection & Recommendation Button */
@@ -118,9 +142,10 @@ h1 {
 }
 
 #searchBar {
-    width: 50%;
-    padding: 12px;
-    font-size: 16px;
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 14px;
     border-radius: 8px;
     border: none;
     outline: none;
@@ -144,14 +169,14 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: 15px;
     background: none !important;
 }
 
 /* Movie & Show Cards */
 .movie-card, .saved-card {
-    width: 260px;
+    width: 250px;
     padding: 14px;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
@@ -178,13 +203,13 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 /* Save & Remove Buttons */
 .save-btn, .remove-btn {
-    padding: 7px 12px;
-    font-size: 14px;
+    padding: 6px 10px;
+    font-size: 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -198,7 +223,7 @@ h1 {
 
 .save-btn:hover {
     background-color: #059669;
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .remove-btn {
@@ -208,29 +233,25 @@ h1 {
 
 .remove-btn:hover {
     background-color: #dc2626;
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .sections {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .section-card {
-        width: 85%;
-        height: auto;
-    }
 
-    #searchBar {
-        width: 85%;
-    }
 
-    .movie-card, .saved-card {
-        width: 95%;
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
